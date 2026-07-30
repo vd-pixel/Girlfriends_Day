@@ -1,129 +1,144 @@
-index<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This tag right here is the secret to making it look perfect on mobile phones! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy Girlfriend's Day! 💖</title>
-    <!-- Importing beautiful fonts from Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Importing beautiful fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
+        /* Base styling */
         body {
             background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
             font-family: 'Poppins', sans-serif;
             text-align: center;
             margin: 0;
-            padding: 40px 20px;
+            padding: 30px 15px; /* Adjusted padding for smaller screens */
             color: #333;
             min-height: 100vh;
+            overflow-x: hidden; /* Prevents side-scrolling on phones */
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 4.5em;
+            font-size: 3.5em; /* Scaled for mobile */
             color: #ff0844;
-            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
-            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+            margin-top: 10px;
+            margin-bottom: 10px;
+            line-height: 1.2;
         }
 
+        /* The Letter */
         .love-letter {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px 20px;
             border-radius: 20px;
-            max-width: 650px;
-            margin: 0 auto 40px auto;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            max-width: 90%;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             border: 2px dashed #ffb3c6;
+            text-align: left; /* Makes long text easier to read on phones */
         }
 
         .love-letter p {
-            font-size: 1.15em;
-            line-height: 1.8;
+            font-size: 1.05em;
+            line-height: 1.7;
             color: #4a4a4a;
+            margin-bottom: 15px;
         }
 
         .highlight {
             color: #ff0844;
             font-weight: 600;
+            display: block;
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
         }
 
+        /* Video Layout */
         .video-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 35px;
+            flex-direction: column; /* Stacks cards vertically on phones */
+            align-items: center;
+            gap: 30px;
+            padding-bottom: 50px;
         }
 
         .video-card {
             background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            width: 320px;
-            transition: transform 0.4s ease;
-        }
-
-        .video-card:hover {
-            transform: translateY(-10px);
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            width: 100%; /* Takes up full phone width */
+            max-width: 340px; /* But won't get too wide on a tablet */
+            box-sizing: border-box;
         }
 
         .video-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 2em;
+            font-size: 2.2em;
             color: #ff7675;
-            margin-top: 0;
+            margin-top: 5px;
             margin-bottom: 15px;
         }
         
-        /* Styling the native video player */
         video {
             width: 100%;
-            border-radius: 15px;
+            border-radius: 12px;
             background-color: #000;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .download-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
+            display: block; /* Makes the button take full width */
+            margin-top: 15px;
+            padding: 12px 0;
             background: linear-gradient(45deg, #ff0844 0%, #ffb199 100%);
             color: white;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(255, 8, 68, 0.4);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 8, 68, 0.3);
+            transition: transform 0.2s;
         }
 
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 8, 68, 0.6);
+        .download-btn:active {
+            transform: scale(0.95); /* Cool click effect on phones */
         }
 
-        .sparkles {
-            font-size: 2em;
-            margin: 20px 0;
-            animation: pulse 2s infinite;
+        /* Floating Hearts Animation CSS */
+        .heart {
+            position: fixed;
+            bottom: -10vh;
+            font-size: 1.5rem;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.7;
+            z-index: -1; /* Keeps them behind the videos */
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="sparkles">✨ 💖 🌸 💖 ✨</div>
-    
     <h1>Happy Girlfriend's Day!</h1>
     
     <div class="love-letter">
-        <p>To my beautiful girl,</p>
-        <p>Every single day with you is a gift. Sometimes I might not be able to say everything perfectly out loud, so I put my heart into doing what I do best instead. <br><br>I made these special video edits just for you, to show you how much you mean to me and how happy you make me. I hope they make you smile as much as you make me smile.</p>
-        <p>I love you! <span class="highlight">Forever and always.</span></p>
+        <p>To the girl who has my heart,</p>
+        <p>I might not always be the best at saying everything perfectly out loud. Sometimes, I find it so much easier to express myself from behind a screen. We already tell each other "I love you" every day, but I wanted to build something completely from scratch just for you to celebrate today.</p>
+        <p>I spent time picking out my absolute favorite photos of you, editing them, and putting them into these videos. Even though I used some templates, every single picture was chosen because it reminds me of how incredibly lucky I am to have you.</p>
+        <p>I hope watching these makes you smile as big as you make me smile every single day. You are my favorite part of my life.</p>
+        <span class="highlight">Forever and always. ❤️</span>
     </div>
 
     <div class="video-container">
@@ -131,53 +146,75 @@ index<!DOCTYPE html>
         <!-- Video 1 -->
         <div class="video-card">
             <h3 class="video-title">Edit One 🌸</h3>
-            <video controls>
-                <!-- Paste your direct link below -->
+            <video controls playsinline>
+                <!-- Paste your Dropbox ?raw=1 link below -->
                 <source src="YOUR_DIRECT_LINK_1" type="video/mp4">
             </video>
-            <!-- Paste the same direct link below for the download button -->
-            <a href="YOUR_DIRECT_LINK_1" download="Edit_One.mp4" class="download-btn">💌 Download</a>
+            <!-- Paste the same link below -->
+            <a href="YOUR_DIRECT_LINK_1" download="Edit_One.mp4" class="download-btn">💌 Save to Phone</a>
         </div>
 
         <!-- Video 2 -->
         <div class="video-card">
             <h3 class="video-title">Edit Two ✨</h3>
-            <video controls>
+            <video controls playsinline>
                 <source src="YOUR_DIRECT_LINK_2" type="video/mp4">
             </video>
-            <a href="YOUR_DIRECT_LINK_2" download="Edit_Two.mp4" class="download-btn">💌 Download</a>
+            <a href="YOUR_DIRECT_LINK_2" download="Edit_Two.mp4" class="download-btn">💌 Save to Phone</a>
         </div>
 
         <!-- Video 3 -->
         <div class="video-card">
             <h3 class="video-title">Edit Three 🦋</h3>
-            <video controls>
+            <video controls playsinline>
                 <source src="YOUR_DIRECT_LINK_3" type="video/mp4">
             </video>
-            <a href="YOUR_DIRECT_LINK_3" download="Edit_Three.mp4" class="download-btn">💌 Download</a>
+            <a href="YOUR_DIRECT_LINK_3" download="Edit_Three.mp4" class="download-btn">💌 Save to Phone</a>
         </div>
 
         <!-- Video 4 -->
         <div class="video-card">
             <h3 class="video-title">Edit Four 🌷</h3>
-            <video controls>
+            <video controls playsinline>
                 <source src="YOUR_DIRECT_LINK_4" type="video/mp4">
             </video>
-            <a href="YOUR_DIRECT_LINK_4" download="Edit_Four.mp4" class="download-btn">💌 Download</a>
+            <a href="YOUR_DIRECT_LINK_4" download="Edit_Four.mp4" class="download-btn">💌 Save to Phone</a>
         </div>
         
-        <!-- Video 5 -->
+        <!-- Video 5 (Delete this whole block if you only have 4 videos) -->
         <div class="video-card">
             <h3 class="video-title">Edit Five 🎀</h3>
-            <video controls>
+            <video controls playsinline>
                 <source src="YOUR_DIRECT_LINK_5" type="video/mp4">
             </video>
-            <a href="YOUR_DIRECT_LINK_5" download="Edit_Five.mp4" class="download-btn">💌 Download</a>
+            <a href="YOUR_DIRECT_LINK_5" download="Edit_Five.mp4" class="download-btn">💌 Save to Phone</a>
         </div>
 
     </div>
 
-    <div class="sparkles" style="margin-top: 40px;">✨ 💖 🌸 💖 ✨</div>
+    <!-- JavaScript to generate the floating hearts -->
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = '💖';
+            
+            // Randomize heart position and animation duration
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+            heart.style.fontSize = Math.random() * 1 + 1 + 'rem';
+            
+            document.body.appendChild(heart);
+            
+            // Remove the heart after it floats up so the phone doesn't lag
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        // Create a new heart every 600 milliseconds
+        setInterval(createHeart, 600);
+    </script>
 
 </body>
 </html>
